@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Produtos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        .product-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 20px;
+        }
+
+        .product-item {
+            background-color: white;
+            margin: 10px;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 250px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .product-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .product-item h2 {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .product-item p {
+            font-size: 14px;
+            color: #666;
+            margin: 5px 0;
+        }
+
+        .product-item a {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 15px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        .product-item a:hover {
+            background-color: #45a049;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Lista de Produtos</h1>
+    </header>
+
+    <main>
+        <div class="product-list" id="product-list">
+            <!-- Os produtos serão inseridos dinamicamente aqui -->
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Loja Online. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        
+        const products = [
+            {
+                name: "Produto 1 - Loja A",
+                description: "Descrição breve do produto 1.",
+                image: "produto1.jpg",  
+                link: "https://lojaA.com/produto1"
+            },
+            {
+                name: "Produto 2 - Loja B",
+                description: "Descrição breve do produto 2.",
+                image: "produto2.jpg",  
+                link: "https://lojaB.com/produto2"
+            },
+            {
+                name: "Produto 3 - Loja C",
+                description: "Descrição breve do produto 3.",
+                image: "produto3.jpg", 
+                link: "https://lojaC.com/produto3"
+            },
+            {
+                name: "Produto 4 - Loja D",
+                description: "Descrição breve do produto 4.",
+                image: "produto4.jpg",  
+                link: "https://lojaD.com/produto4"
+            },
+            // Adicione mais produtos aqui
+        ];
+
+      
+        function loadProducts() {
+            const productList = document.getElementById('product-list');
+            products.forEach(product => {
+                
+                const productItem = document.createElement('div');
+                productItem.classList.add('product-item');
+                
+                
+                productItem.innerHTML = `
+                    <img src="${product.image}" alt="${product.name}">
+                    <h2>${product.name}</h2>
+                    <p>${product.description}</p>
+                    <a href="${product.link}" target="_blank">Ver Produto</a>
+                `;
+                
+             
+                productList.appendChild(productItem);
+            });
+        }
+
+       
+        window.onload = loadProducts;
+    </script>
+</body>
+</html>
